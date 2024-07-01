@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "A Pokémon Book",
   description: "next app으로 만든 포켓몬 도감!",
   icons: {
-    icon: "/pokemon_ball.png",
+    icon: "/pokemon_ball.png", // 이거 왜 갑자기 안 되는거죠
   },
 };
 
