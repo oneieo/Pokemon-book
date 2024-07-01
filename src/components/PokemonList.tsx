@@ -12,8 +12,8 @@ const PokemonList = () => {
   } = useQuery({
     queryKey: ["pokemonData"],
     queryFn: async () => {
-      const response = await fetch(``); // 직접 부르는건데 ..? 그러면 안 되는데
-      return response.json();
+      const response = await axios.get("http://localhost:3000/api/pokemons");
+      return response; // 헐 대박 !!!!!!!!!1 감사해요 혜미님 ㅜㅜㅜㅜㅜㅜㅜ
     },
   });
 
