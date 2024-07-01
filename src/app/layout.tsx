@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import QueryProvider from "@/components/QueryProvider";
 
 export const metadata: Metadata = {
   title: "A Pokémon Book",
@@ -17,10 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="w-full h-[100px] flex items-center justify-center text-[35px] font-bold">
-          ⚡ Pokémon Book ⚡
-        </nav>
-        {children}
+        <QueryProvider>
+          <nav className="w-full h-[100px] flex items-center justify-center text-[35px] font-bold">
+            ⚡ Pokémon Book ⚡
+          </nav>
+          {children}
+        </QueryProvider>
       </body>
     </html>
   );
