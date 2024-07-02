@@ -5,7 +5,13 @@ const Loading = () => {
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center ">
       <h1 className="text-[30px] font-bold">포켓몬 도감 가져오는 중 ...</h1>
-      <Image src="/DualRing.gif" width={150} height={150} alt="로딩 스피너" />
+      <Image
+        src="/DualRing.gif"
+        width={150}
+        height={150}
+        alt="로딩 스피너"
+        priority
+      />
     </div>
   );
 };

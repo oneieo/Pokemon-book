@@ -9,3 +9,9 @@ export type Pokemon = {
   abilities: { ability: { name: string; korean_name: string } }[];
   moves: { move: { name: string; korean_name: string } }[];
 };
+
+export type Params = {
+  params: {
+    id: string;
+  };
+};

@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <QueryProvider>
-          <nav className="w-full h-[100px] flex items-center justify-center text-[35px] font-bold">
+          <nav className="w-full h-[100px] flex items-center justify-center text-[40px] font-bold mb-5">
             ⚡ Pokémon Book ⚡
           </nav>
           {children}
