@@ -36,23 +36,23 @@ const PokemonList = () => {
       <ul className="w-[1440px] h-screen flex flex-wrap items-center justify-center gap-[30px] mb-10">
         {pokemonData.map((data) => {
           return (
-            <li
-              key={data.id}
-              className="w-[200px] h-[200px] flex flex-col justify-center items-center shadow-md rounded hover:cursor-pointer  hover:shadow-lg "
-            >
-              <Link href={`/pokemon-detail/${data.id}`}>
+            <Link key={data.id} href={`/pokemon-detail/${data.id}`}>
+              <li
+                key={data.id}
+                className="w-[200px] h-[200px] flex flex-col justify-center items-center shadow-[1px_1px_10px_1px_rgb(0,0,0,0.2)] rounded hover:cursor-pointer  hover:shadow-[1px_1px_10px_1px_rgb(0,0,0,0.4)] "
+              >
                 <Image
                   src={data.sprites.front_default}
                   width={150}
                   height={150}
                   alt="pokemon-image"
                 />
-                <h1 className="w-[190px] text-[18px] font-bold">
+                <h1 className="w-[180px] text-[18px] font-bold">
                   {data.korean_name}
                 </h1>
-                <p className="w-[190px]">도감번호: {data.id}</p>
-              </Link>
-            </li>
+                <p className="w-[180px] mb-2">도감번호: {data.id}</p>
+              </li>
+            </Link>
           );
         })}
       </ul>{" "}

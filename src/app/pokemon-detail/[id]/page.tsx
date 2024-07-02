@@ -1,4 +1,5 @@
 import { Params, Pokemon } from "@/app/types/pokemon.type";
+import BackButton from "@/components/BackButton";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
@@ -13,35 +14,65 @@ const PokemonDetail = async ({ params }: Params) => {
   );
 
   return (
-    <div className="w-full h-screen flex justify-center mt-[70px]">
-      <div className="w-[1000px] h-[600px] bg-fuchsia-200">
-        <h1>{monsterInfo.korean_name}</h1>
-        <p>No. {id}</p>
-        <Image
-          src={monsterInfo.sprites.front_default}
-          width={150}
-          height={150}
-          alt="포켓몬 이미지"
-          priority
-        />
-        <p>이름: {monsterInfo.korean_name}</p>
-        <p>키: {(monsterInfo.height / 10).toFixed(1)}m</p>
-        <p>무게: {(monsterInfo.weight / 10).toFixed(1)}kg</p>
-        <p>
-          타입: {monsterInfo.types.map((monster) => monster.type.korean_name)}
-        </p>
-        <p>
-          특성:
-          {monsterInfo.abilities.map((monster) => monster.ability.korean_name)}
-        </p>
-        <p>
-          기술 <br />
-          {monsterInfo.moves.map((monster) => monster.move.korean_name)}
-        </p>
-        <Link href={"/"}>
-          <button>뒤로가기</button>
-        </Link>
-      </div>{" "}
+    <div className="w-full  flex justify-center mt-[50px]">
+      <div className="w-[900px] mb-[100px] flex flex-col justify-between items-center rounded-lg bg-gray-100 shadow-[1px_1px_10px_0px_rgb(0,0,0,0.2)] ">
+        <div className="w-[900px] h-[100px] flex flex-col justify-center items-center rounded bg-orange-300">
+          <h1 className="text-[25px] font-bold">{monsterInfo.korean_name}</h1>
+          <p className="text-[18px]">No. {id.padStart(4, "0")}</p>
+        </div>
+        <div className="flex">
+          <div className="w-[450px] flex flex-col justify-center items-center">
+            <Image
+              src={monsterInfo.sprites.front_default}
+              width={180}
+              height={180}
+              alt="포켓몬 이미지"
+              priority
+              className="mt-5"
+            />
+            <div>
+              <p className="text-[20px]">이름: {monsterInfo.korean_name}</p>
+              <p className="text-[20px]">
+                키: {(monsterInfo.height / 10).toFixed(1)}m
+              </p>
+              <p className="text-[20px]">
+                무게: {(monsterInfo.weight / 10).toFixed(1)}kg
+              </p>
+              <ul className="flex items-center text-[20px]">
+                타입:{" "}
+                {monsterInfo.types.map((monster) => (
+                  <li
+                    key={monster.type.korean_name}
+                    className=" h-[30px] flex justify-center items-center p-1 ml-2 text-[18px] rounded-lg bg-red-400 text-white "
+                  >
+                    {monster.type.korean_name}
+                  </li>
+                ))}
+              </ul>
+              <ul className="flex items-center text-[20px]">
+                특성:{" "}
+                {monsterInfo.abilities.map((monster) => (
+                  <li
+                    key={monster.ability.korean_name}
+                    className=" h-[30px] flex justify-center items-center p-1 mt-1 ml-2 text-[18px] rounded-lg bg-green-500 text-white "
+                  >
+                    {monster.ability.korean_name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <ul className="w-[440px] mr-[40px] flex flex-col flex-wrap gap-5">
+            <p className="flex text-[20px] font-bold mt-8">기술</p>
+            <li className="flex text-[17px]">
+              {monsterInfo.moves.map(
+                (monster) => monster.move.korean_name + " "
+              )}
+            </li>
+          </ul>
+        </div>
+        <BackButton />
+      </div>
     </div>
   );
 };
