@@ -39,7 +39,7 @@ const PokemonList = () => {
             <Link key={data.id} href={`/pokemon-detail/${data.id}`}>
               <li
                 key={data.id}
-                className="w-[200px] h-[200px] flex flex-col justify-center items-center shadow-[1px_1px_10px_1px_rgb(0,0,0,0.2)] rounded hover:cursor-pointer  hover:shadow-[1px_1px_10px_1px_rgb(0,0,0,0.4)] "
+                className="w-[200px] h-[200px] flex flex-col justify-center items-center shadow-[1px_1px_10px_1px_rgb(0,0,0,0.2)] rounded hover:cursor-pointer hover:shadow-[1px_1px_10px_1px_rgb(0,0,0,0.4)]"
               >
                 <Image
                   src={data.sprites.front_default}
@@ -55,7 +55,7 @@ const PokemonList = () => {
             </Link>
           );
         })}
-      </ul>{" "}
+      </ul>
     </div>
   );
 };
