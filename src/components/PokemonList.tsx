@@ -2,18 +2,19 @@
 
 import { Pokemon } from "@/app/types/pokemon.type";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Image from "next/image";
 import Loading from "./Loading";
 import Error from "./Error";
 import Link from "next/link";
 
+// 스탠다드 7월 1일 강의 보기
 const PokemonList = () => {
   const {
     data: pokemonData,
     isPending,
     isError,
-  } = useQuery({
+  } = useQuery<Pokemon[], AxiosError, Pokemon[]>({
     queryKey: ["pokemonData"],
     queryFn: async (): Promise<Pokemon[]> => {
       const { data } = await axios.get<Pokemon[]>(
