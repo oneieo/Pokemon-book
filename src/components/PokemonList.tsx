@@ -29,7 +29,6 @@ const PokemonList = () => {
   if (isError) {
     return <Error />;
   }
-  console.log(pokemonData);
 
   return (
     <div className="w-full h-full flex items-center justify-center ">
@@ -46,6 +45,7 @@ const PokemonList = () => {
                   width={150}
                   height={150}
                   alt="pokemon-image"
+                  priority
                 />
                 <h1 className="w-[180px] text-[18px] font-bold">
                   {data.korean_name}
