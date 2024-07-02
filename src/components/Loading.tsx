@@ -1,10 +1,11 @@
+import Image from "next/image";
 import React from "react";
 
 const Loading = () => {
   return (
-    <div>
-      <h1>포켓몬 깨우는 중 ...</h1>
-      <img src="" />
+    <div className="w-full h-screen flex flex-col items-center justify-center ">
+      <h1 className="text-[30px] font-bold">포켓몬 도감 가져오는 중 ...</h1>
+      <Image src="/DualRing.gif" width={150} height={150} alt="로딩 스피너" />
     </div>
   );
 };

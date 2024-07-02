@@ -4,6 +4,9 @@ import { GET } from "@/app/api/pokemons/route";
 import { Pokemon } from "@/app/types/pokemon.type";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Image from "next/image";
+import Loading from "./Loading";
+import Error from "./Error";
 
 const PokemonList = () => {
   const {
@@ -16,28 +19,42 @@ const PokemonList = () => {
       const { data } = await axios.get<Pokemon[]>(
         "http://localhost:3000/api/pokemons"
       );
-      return data; // 헐 대박 !!!!!!!!!1 감사해요 혜미님 ㅜㅜㅜㅜㅜㅜㅜ
+      return data;
     },
   });
 
   if (isPending) {
-    return <>로딩중~</>;
+    return <Loading />;
   }
   if (isError) {
-    return <>데이터 조회 중 에러 발생~</>;
+    return <Error />;
   }
 
   console.log(pokemonData);
   return (
-    <ul>
-      {pokemonData.map((data) => {
-        return (
-          <li key={data.id}>
-            <h1>{data.korean_name}</h1>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="w-full h-full flex items-center justify-center ">
+      <ul className="w-[1440px] h-screen flex flex-wrap items-center justify-center gap-[30px] mb-10">
+        {pokemonData.map((data) => {
+          return (
+            <li
+              key={data.id}
+              className="w-[200px] h-[200px] flex flex-col justify-center items-center shadow-md rounded hover:cursor-pointer  hover:shadow-lg "
+            >
+              <Image
+                src={data.sprites.front_default}
+                width={150}
+                height={150}
+                alt="pokemon-image"
+              />
+              <h1 className="w-[190px] text-[18px] font-bold">
+                {data.korean_name}
+              </h1>
+              <p className="w-[190px]">도감번호: {data.id}</p>
+            </li>
+          );
+        })}
+      </ul>{" "}
+    </div>
   );
 };
 
