@@ -9,9 +9,7 @@ import React from "react";
 // 서버 컴포넌트에서 파라미터 가져오는 방법
 const PokemonDetail = async ({ params }: Params) => {
   const { id } = params;
-  const { data: monsterInfo } = await axios.get<Pokemon>(
-    `http://localhost:3000/api/pokemons/${id}`
-  );
+  const { data: monsterInfo } = await axios.get<Pokemon>(`/api/pokemons/${id}`);
 
   return (
     <div className="w-full  flex justify-center mt-[50px]">

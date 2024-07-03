@@ -14,12 +14,10 @@ const PokemonList = () => {
     data: pokemonData,
     isPending,
     isError,
-  } = useQuery<Pokemon[], AxiosError, Pokemon[]>({
+  } = useQuery<Pokemon[], AxiosError>({
     queryKey: ["pokemonData"],
     queryFn: async (): Promise<Pokemon[]> => {
-      const { data } = await axios.get<Pokemon[]>(
-        "http://localhost:3000/api/pokemons"
-      );
+      const { data } = await axios.get<Pokemon[]>("/api/pokemons");
       return data;
     },
   });
