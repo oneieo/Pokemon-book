@@ -7,7 +7,6 @@ import Image from "next/image";
 import Loading from "./Loading";
 import Error from "./Error";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const PokemonList = () => {
   const {
