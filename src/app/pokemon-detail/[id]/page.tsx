@@ -1,10 +1,21 @@
-import { Params, Pokemon } from "@/app/types/pokemon.type";
+import { Params, Pokemon } from "@/types/pokemon.type";
 import BackButton from "@/components/BackButton";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+export const generateMetadata = async ({ params }: Params) => {
+  const { id } = params;
+  const { data: monsterInfo } = await axios.get<Pokemon>(
+    `http://localhost:3000/api/pokemons/${id}`
+  );
+
+  return {
+    title: monsterInfo.korean_name + " | Pokémon Book",
+  };
+};
 
 // 서버 컴포넌트에서 파라미터 가져오는 방법
 const PokemonDetail = async ({ params }: Params) => {
@@ -62,13 +73,14 @@ const PokemonDetail = async ({ params }: Params) => {
               </ul>
             </div>
           </div>
-          <ul className="w-[440px] mr-[40px] flex flex-col flex-wrap gap-5">
+          <ul className="w-[440px] mr-[40px] flex flex-col flex-wrap gap-5 ">
             <p className="flex text-[20px] font-bold mt-8">기술</p>
-            <li className="flex text-[17px]">
+            <p className="flex text-[17px] break-keep">
+              {/**p태그에만 먹히는건지 찾아보기 */}
               {monsterInfo.moves.map(
                 (monster) => monster.move.korean_name + " "
-              )}
-            </li>
+              )}{" "}
+            </p>
           </ul>
         </div>
         <BackButton />

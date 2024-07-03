@@ -1,14 +1,14 @@
 "use client";
 
-import { Pokemon } from "@/app/types/pokemon.type";
+import { Pokemon } from "@/types/pokemon.type";
 import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import Image from "next/image";
 import Loading from "./Loading";
 import Error from "./Error";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-// 스탠다드 7월 1일 강의 보기
 const PokemonList = () => {
   const {
     data: pokemonData,
