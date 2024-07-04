@@ -3,8 +3,8 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center ">
-      <h1 className="text-[30px] font-bold mb-10">
+    <div className="w-full h-screen flex flex-col items-center justify-center bg-[url('/pixel_nature.jpg')] bg-cover">
+      <h1 className="text-[30px] font-bold mb-10 text-white">
         포켓몬 도감 가져오는 중 ...
       </h1>
       <Image
