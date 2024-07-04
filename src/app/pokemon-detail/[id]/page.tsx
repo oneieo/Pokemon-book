@@ -74,10 +74,9 @@ const PokemonDetail = async ({ params }: Params) => {
           <ul className="w-[440px] mr-[40px] flex flex-col flex-wrap gap-5 ">
             <p className="flex text-[20px] font-bold mt-8">기술</p>
             <p className="flex text-[17px] break-keep">
-              {/**p태그에만 먹히는건지 찾아보기 */}
               {monsterInfo.moves.map(
                 (monster) => monster.move.korean_name + " "
-              )}{" "}
+              )}
             </p>
           </ul>
         </div>
@@ -88,18 +87,3 @@ const PokemonDetail = async ({ params }: Params) => {
 };
 
 export default PokemonDetail;
-
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//   const { id } = context.params;
-//   const { data: monsterInfo } = await axios.get<Pokemon>(
-//     `http://localhost:3000/api/pokemons/${id}`
-//   ); // 왤케 느리지
-
-//   return {
-//     props: {
-//       // 데이터 객체
-//       // ...
-//       monsterInfo,
-//     },
-//   };
-// };
