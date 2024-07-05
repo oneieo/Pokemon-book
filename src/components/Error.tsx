@@ -11,7 +11,7 @@ const Error = () => {
       <Link href="/">
         <h3 className="font-semibold text-gray-400 mb-10">홈으로 돌아가기</h3>
       </Link>
-      <Image src="/error.png" width={150} height={150} alt="에러 이미지" />
+      <Image src="/failure.png" width={150} height={130} alt="에러 이미지" />
     </div>
   );
 };

@@ -15,3 +15,9 @@ export type Params = {
     id: string;
   };
 };
+
+export type InfiniteQueryData = {
+  data: Pokemon[];
+  totalPages: number;
+  hasNextPage: boolean;
+};
