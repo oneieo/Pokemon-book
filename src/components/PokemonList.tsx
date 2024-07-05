@@ -78,7 +78,7 @@ const PokemonList = () => {
         <ul className="w-[1440px] h-full flex flex-wrap items-center justify-center gap-[30px] mt-[50px] mb-10">
           {pokemonData.map((page) => (
             <Link key={page?.id} href={`/pokemon-detail/${page?.id}`}>
-              <li className="w-[210px] h-[210px] flex flex-col justify-center items-center bg-white shadow-[1px_1px_10px_1px_rgb(0,0,0,0.2)] rounded hover:cursor-pointer hover:shadow-[1px_1px_10px_1px_rgb(0,0,0,0.4)]">
+              <li className="w-[210px] h-[210px] flex flex-col justify-center items-center bg-white shadow-[1px_1px_10px_1px_rgb(0,0,0,0.2)] rounded hover:cursor-pointer hover:shadow-[1px_1px_10px_1px_rgb(0,0,0,0.4)] hover:bg-slate-200">
                 <Image
                   src={page?.sprites?.front_default}
                   width={150}

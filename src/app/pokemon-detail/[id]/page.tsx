@@ -23,8 +23,8 @@ const PokemonDetail = async ({ params }: Params) => {
   );
 
   return (
-    <div className="w-full h-full flex justify-center  bg-[url('/pixel_nature.jpg')] bg-cover ">
-      <div className="w-[900px] mt-[50px] mb-[100px] flex flex-col justify-between items-center rounded-lg bg-gray-100 shadow-[1px_1px_10px_0px_rgb(0,0,0,0.2)] ">
+    <div className="w-full min-h-screen flex justify-center items-center bg-[url('/pixel_nature.jpg')] bg-cover bg-fixed">
+      <div className="w-[900px] mt-[50px] mb-[100px] flex flex-col justify-center items-center rounded-lg bg-gray-100 shadow-[1px_1px_10px_0px_rgb(0,0,0,0.2)] ">
         <div className="w-[900px] h-[100px] flex flex-col justify-center items-center rounded bg-orange-300">
           <h1 className="text-[25px] font-bold">{monsterInfo.korean_name}</h1>
           <p className="text-[18px]">No. {id.padStart(4, "0")}</p>
