@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 const TOTAL_POKEMON = 1024;
 const PAGE_SIZE = 24;
