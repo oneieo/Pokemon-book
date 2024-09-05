@@ -1,4 +1,4 @@
-# 👾 Nextjs + Typescript로 포켓몬 도감 만들기
+# 👾 Next.js + Typescript로 포켓몬 도감 만들기
 #### Next.js 를 이용해 나만의 포켓몬 도감을 만들어 보기
 
 
